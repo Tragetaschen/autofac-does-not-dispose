@@ -15,9 +15,9 @@ namespace autofac_does_not_dispose
         public void ConfigureServices(IServiceCollection services) { }
         public void ConfigureContainer(ContainerBuilder builder)
             // Does not work:
-            //=> builder.RegisterInstance(Program.MyDisposable);
+            => builder.RegisterInstance(Program.MyDisposable);
             // Does work:
-            => builder.RegisterInstance(Program.MyDisposable).AutoActivate();
+            //=> builder.RegisterInstance(Program.MyDisposable).AutoActivate();
 
         public void Configure(
             IApplicationBuilder app,
